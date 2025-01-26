@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <h1>Guia Completo de Cláusulas SQL (SQLite, PostgreSQL, MySQL, SQL Server)</h1>
+    <p>Este documento apresenta exemplos de uso de cláusulas SQL, desde as mais simples até as mais avançadas, em SQLite, PostgreSQL, MySQL e SQL Server.</p>
+
+    <h2>1 - SELECT</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        SELECT * <br>
+        FROM tabela;
+    </code>
+    <p>Descrição: Seleciona todas as colunas de uma tabela.</p>
+    <hr>
+
+    <h2>2 - WHERE</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        SELECT * <br>
+        FROM tabela <br>
+        WHERE coluna = 'valor';
+    </code>
+    <p>Descrição: Filtra os resultados com base em uma condição.</p>
+    <hr>
+
+    <h2>3 - INSERT</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        INSERT INTO tabela (coluna1, coluna2)<br> 
+        VALUES ('valor1', 'valor2');
+    </code>
+    <p>Descrição: Insere valores em colunas específicas.</p>
+    <hr>
+
+    <h2>4 - UPDATE</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        UPDATE tabela <br>
+        SET coluna1 = 'novo_valor' <br>
+        WHERE coluna2 = 'valor';
+    </code>
+    <p>Descrição: Atualiza valores em uma tabela com base em uma condição.</p>
+    <hr>
+
+    <h2>5 - DELETE</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        DELETE FROM tabela <br>
+        WHERE coluna = 'valor';
+    </code>
+    <p>Descrição: Remove linhas de uma tabela com base em uma condição.</p>
+    <hr>
+
+    <h2>6 - JOIN</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        SELECT a.coluna1, b.coluna2 <br>
+        FROM tabela1 a <br>
+        JOIN tabela2 b <br>
+        ON a.id = b.id
+    </code>
+    <p>Descrição: Realiza um INNER JOIN entre duas tabelas.</p>
+    <hr>
+
+    <h2>7 - GROUP BY</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        SELECT coluna, COUNT(*) <br>
+        FROM tabela <br>
+        GROUP BY coluna
+    </code>
+    <p>Descrição: Agrupa os dados com base em uma coluna e aplica funções agregadas.</p>
+    <hr>
+
+    <h2>8 - HAVING</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        SELECT coluna, COUNT(*) <br>
+        FROM tabela <br>
+        GROUP BY coluna <br>
+        HAVING COUNT(*) > 1
+    </code>
+    <p>Descrição: Filtra os grupos criados pelo GROUP BY.</p>
+    <hr>
+
+    <h2>9 - DISTINCT</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        SELECT DISTINCT coluna <br>
+        FROM tabela;
+    </code>
+    <p>Descrição: Retorna valores únicos de uma coluna.</p>
+    <hr>
+
+    <h2>10 - LIMIT</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL):</h3>
+    <code>
+        SELECT * <br>
+        FROM tabela <br>
+        LIMIT 10;
+    </code>
+    <p>Descrição: Limita o número de linhas retornadas.</p>
+    <h3>Exemplo 2 (SQL Server):</h3>
+    <code>SELECT TOP 10 * FROM tabela;</code>
+    <p>Descrição: O SQL Server utiliza `TOP` em vez de `LIMIT`.</p>
+    <hr>
+
+    <h2>11 - OFFSET</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL):</h3>
+    <code>
+        SELECT * <br>
+        FROM tabela <br>
+        LIMIT 10 <br>
+        OFFSET 5;
+    </code>
+    <p>Descrição: Pula um número específico de linhas antes de começar a retornar os resultados.</p>
+    <h3>Exemplo 2 (SQL Server):</h3>
+    <code>
+        SELECT * <br>
+        FROM tabela <br>
+        ORDER BY coluna <br>
+        OFFSET 5 ROWS FETCH NEXT 10 ROWS ONLY
+    </code>
+    <p>Descrição: O SQL Server utiliza `OFFSET` combinado com `FETCH NEXT`.</p>
+    <hr>
+
+    <h2>12 - UNION</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>
+        SELECT coluna1 <br>
+        FROM tabela1 <br>
+        UNION <br>
+        SELECT coluna1 <br>
+        FROM tabela2
+    </code>
+    <p>Descrição: Combina os resultados de duas consultas, removendo duplicatas.</p>
+    <hr>
+
+    <h2>13 - CREATE TABLE</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL):</h3>
+    <code>
+        CREATE TABLE tabela (<br>
+            id INTEGER PRIMARY KEY,<br>
+            coluna1 TEXT,<br>
+            coluna2 INTEGER<br>
+        )
+    </code>
+    <p>Descrição: Cria uma nova tabela com colunas e tipos de dados definidos. O tipo `INTEGER PRIMARY KEY` é usado para auto incremento (compatível com SQLite, PostgreSQL e MySQL).</p>
+    <h3>Exemplo 2 (SQL Server):</h3>
+    <code>
+        CREATE TABLE tabela (<br>
+            id INT IDENTITY(1,1) PRIMARY KEY,<br>
+            coluna1 NVARCHAR(MAX),<br>
+            coluna2 INT<br>
+        )        
+    </code>
+    <p>Descrição: Utiliza `IDENTITY` para auto incremento e tipos de dados específicos como `NVARCHAR`. Observa-se que
+        os tipos podem variar entre os bancos de dados, por exemplo, `NVARCHAR` no SQL Server para suportar texto
+        Unicode.</p>
+    <code>
+        CREATE TABLE tabela (<br>
+            id INTEGER PRIMARY KEY,<br>
+            coluna1 TEXT,<br>
+            coluna2 INTEGER<br>
+            )
+    </code>
+    <p>Descrição: Cria uma nova tabela com colunas e tipos de dados definidos.</p>
+    <h3>Exemplo 2 (PostgreSQL):</h3>
+    <code>
+        CREATE TABLE tabela (<br>
+            id SERIAL PRIMARY KEY,<br>
+            coluna1 TEXT,<br>
+            coluna2 INTEGER<br>
+            )
+    </code>
+    <p>Descrição: Difere no tipo de dado `SERIAL` para auto incremento.</p>
+    <h3>Exemplo 3 (SQL Server):</h3>
+    <code>
+        CREATE TABLE tabela (<br>
+            id INT IDENTITY(1,1) PRIMARY KEY,<br>
+            coluna1 NVARCHAR(MAX),<br>
+            coluna2 INT<br>
+            )
+    </code>
+    <p>Descrição: Utiliza `IDENTITY` para auto incremento e tipos de dados específicos como `NVARCHAR`.</p>
+    <hr>
+
+    <h2>14 - ALTER TABLE</h2>
+    <h3>Exemplo 1 (SQLite, MySQL, SQL Server):</h3>
+    <code>ALTER TABLE tabela ADD coluna3 TEXT;</code>
+    <p>Descrição: Adiciona uma nova coluna a uma tabela existente. No caso do SQLite, há limitações quanto a alterações
+        mais complexas, como renomear colunas ou remover colunas existentes, que exigem a recriação da tabela. Em MySQL
+        e SQL Server, comandos adicionais estão disponíveis para essas operações.</p>
+    <h3>Exemplo 2 (PostgreSQL):</h3>
+    <code>ALTER TABLE tabela ADD COLUMN coluna3 TEXT;</code>
+    <p>Descrição: Similar, mas exige a palavra-chave `COLUMN`.</p>
+    <h3>Exemplo 3 (MySQL, SQL Server):</h3>
+    <code>
+        ALTER TABLE tabela <br>
+        ADD coluna3 TEXT;
+    </code>
+    <p>Descrição: Uso idêntico ao SQLite.</p>
+    <hr>
+
+    <h2>15 - DROP TABLE</h2>
+    <h3>Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):</h3>
+    <code>DROP TABLE tabela;</code>
+    <p>Descrição: Remove uma tabela e todos os seus dados.</p>
+    <hr>
+
+    <p>Este guia será expandido com mais cláusulas e exemplos em breve</p>
+    
+
+</body>
+
+</html>

@@ -62,17 +62,69 @@ Descrição: Remove linhas de uma tabela com base em uma condição.
 
 ---
 
-## 6 - JOIN
+## 6 - INNER JOIN
 
 ### Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):
 
 ```sql
 SELECT a.coluna1, b.coluna2
 FROM tabela1 a
-JOIN tabela2 b ON a.id = b.id;
+INNER JOIN tabela2 b 
+ON a.id = b.idcoluna1;
 ```
 
-Descrição: Realiza um INNER JOIN entre duas tabelas.
+Descrição: Combina linhas de duas tabelas quando há uma correspondência entre as colunas especificadas. Se não houver correspondência, a linha não aparece no resultado.
+
+## 6.1 - LEFT JOIN(ou LEFT OUTER JOIN)
+
+### Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):
+
+```sql
+SELECT a.coluna1, b.coluna2
+FROM tabela1 a
+LEFT JOIN tabela2 b 
+ON a.id = b.idcoluna1;
+```
+
+Descrição: Retorna todas as linhas da tabela da esquerda (a primeira mencionada) e as linhas correspondentes da tabela da direita. Se não houver correspondência, os resultados da tabela da direita terão valores `NULL`.
+
+## 6.2 - RIGHT JOIN(ou RIGHT OUTER JOIN)
+
+### Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):
+
+```sql
+SELECT a.coluna1, b.coluna2
+FROM tabela1 a
+LEFT JOIN tabela2 b 
+ON a.id = b.idcoluna1;
+```
+
+Descrição: É o oposto do `LEFT JOIN`. Retorna todas as linhas da tabela da direita e as correspondentes da esquerda. Novamente, se não houver correspondência, os resultados da tabela da esquerda terão valores `NULL`.
+
+## 6.3 - FULL JOIN(ou FULL OUTER JOIN)
+
+### Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):
+
+```sql
+SELECT a.coluna1, b.coluna2
+FROM tabela1 a
+LEFT JOIN tabela2 b 
+ON a.id = b.idcoluna1;
+```
+
+Descrição: Combina as linhas de ambas as tabelas. Se não houver correspondência, ainda assim as linhas serão mostradas, com `NULL` no lado sem correspondência.
+
+## 6.4 - CROSS JOIN
+
+### Exemplo 1 (SQLite, PostgreSQL, MySQL, SQL Server):
+
+```sql
+SELECT Produto.Nome, Categoria.Nome
+FROM Produto
+CROSS JOIN Categoria;
+```
+
+Descrição: O `CROSS JOIN` não utiliza uma condição de correspondência específica, ele simplesmente combina todas as linhas da primeira tabela com todas as linhas da segunda tabela. Isso significa que ele gera todas as combinações possíveis, mesmo que não haja relação lógica entre os dados.
 
 ---
 
@@ -170,6 +222,18 @@ SELECT coluna1 FROM tabela2;
 ```
 
 Descrição: Combina os resultados de duas consultas, removendo duplicatas.
+
+## 12.1 - UNION ALL
+
+### Exemplo 1 (SQLite):
+
+```sql
+SELECT coluna1 FROM tabela1
+UNION ALL
+SELECT coluna1 FROM tabela2;
+```
+
+Descrição: Combina os resultados de duas consultas, incluindo duplicatas.
 
 ---
 
@@ -284,4 +348,6 @@ Descrição: Remove uma tabela e todos os seus dados.
 ---
 
 Este guia será expandido com mais cláusulas e exemplos.
+
+Ultima atualização: 30 de Janeiro de 2025
 

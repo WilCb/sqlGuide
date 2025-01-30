@@ -317,14 +317,6 @@ ALTER TABLE tabela ADD COLUMN coluna3 TEXT;
 
 Descrição: Similar ao SQLite, mas exige a palavra-chave `COLUMN`. O PostgreSQL também oferece suporte a uma gama maior de operações, como renomear ou alterar tipos de colunas diretamente.
 
-### Exemplo 2 (PostgreSQL):
-
-```sql
-ALTER TABLE tabela ADD COLUMN coluna3 TEXT;
-```
-
-Descrição: Similar, mas exige a palavra-chave `COLUMN`.
-
 ### Exemplo 3 (MySQL, SQL Server):
 
 ```sql

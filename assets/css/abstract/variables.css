@@ -1,0 +1,15 @@
+:root {
+    /* Backgroud */
+    --bg-geral: #0D1117;
+    --bg-code: #151B23;
+
+    /* Fonte color */
+    --color-geral: #F0F6FC;
+    --color-code1: #FF7B72;
+    --color-code2: #F0F6FC;
+    --color-code3: #59C0FF;
+
+    /* Fonte family */
+    --font-code: "Fira Code", serif;
+    --font-geral: "Poppins", serif;
+}

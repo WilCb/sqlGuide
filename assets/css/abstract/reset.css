@@ -30,6 +30,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: var(--bg-geral);
+    font-family: var(--font-geral);
+    color: var(--color-geral);
 }
 ol, ul {
 	list-style: none;
